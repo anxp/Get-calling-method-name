@@ -4,3 +4,4 @@
  * from which it was called. For example, if we want to see was specific method executed or not.
  */
 $exampleObj = new ExampleClass();
+$exampleObj->generalClassMethod();
