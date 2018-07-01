@@ -1,6 +1,6 @@
 <?php
 /**
- * Get Called Method Name - this is useful for debug function, which (as clear from it's name) shows (or return) method,
+ * getCallingMethod() - this is useful for debug function, which (as clear from it's name) shows (or returns) method,
  * from which it was called. For example, if we want to see was specific method executed or not.
  */
 class ExampleClass {
@@ -12,6 +12,17 @@ class ExampleClass {
         $last_call = 'Executed method: '.$trace[1]['class'].'->'.$trace[1]['function'];
         print_r($last_call, false);
     }
+
+    public function generalClassMethod() {
+        echo 'Now executing generalClassMethod()...'.PHP_EOL;
+        $this->getCallingMethod();
+    }
 }
 $exampleObj = new ExampleClass();
 $exampleObj->generalClassMethod();
+
+/**
+ * Output will be:
+ * Now executing generalClassMethod()...
+ * Executed method: ExampleClass->generalClassMethod
+ */
